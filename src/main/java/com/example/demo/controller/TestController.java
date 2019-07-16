@@ -29,18 +29,27 @@ public class TestController {
     
 		
 	@PostMapping
-	public void signup(@RequestBody Employee emp) {
-	
+	public int signup(@RequestBody Employee emp) {
+		 Iterable<Employee> findAll = repo.findAll();
+		  for (Employee employee : findAll) {
+	    	  
+			if(employee.getUname().equals(emp.getUname()))
+			{
+				return 0;
+			}
+			
+		}
 		
 		System.out.println("user creater");
 	repo.save(emp);
+	return 1;
 		
 		
 	}
 	@PostMapping({"/logincheck"})
 
 	
-	public void logincheck(@RequestBody login login)
+	public int logincheck(@RequestBody login login)
 	{  System.out.println("asfasf");
 	
 	int id1=0;
@@ -57,7 +66,10 @@ public class TestController {
 		{
 			id1=employee.getId();
 		}
+		
 	}
+    if(id1==0)
+    {return 0;}
     Optional<Employee> e2 = repo.findById(id1);
     Employee employee = e2.get();
     
@@ -67,9 +79,13 @@ public class TestController {
      if(pass.equals(pass2))
      {
     	 System.out.println("asdfasdfasdfsdg");
-    	
+    	 
+    	 return 1;
     	 
      }
-   
-}
+     else {
+    	 System.out.println("nikal ");
+     return 0;
+     }
+	}
 }
