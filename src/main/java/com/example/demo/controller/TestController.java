@@ -33,7 +33,7 @@ public class TestController {
 		 Iterable<Employee> findAll = repo.findAll();
 		  for (Employee employee : findAll) {
 	    	  
-			if(employee.getUname().equals(emp.getUname()))
+			if(emp.getUname().equals(employee.getUname()))
 			{
 				return 0;
 			}
@@ -62,7 +62,7 @@ public class TestController {
    
     for (Employee employee : findAll) {
     	  System.out.println(employee.getUname()+idd);
-		if(employee.getUname().equals(idd))
+		if(idd.equals(employee.getUname()))
 		{
 			id1=employee.getId();
 		}
