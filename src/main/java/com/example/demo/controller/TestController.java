@@ -30,6 +30,7 @@ public class TestController {
 		
 	@PostMapping
 	public int signup(@RequestBody Employee emp) {
+	
 		 Iterable<Employee> findAll = repo.findAll();
 		  for (Employee employee : findAll) {
 	    	  
@@ -57,7 +58,7 @@ public class TestController {
 
       String pass = login.getPasswd();
       //
-    System.out.println("1");
+
      Iterable<Employee> findAll = repo.findAll();
    
     for (Employee employee : findAll) {
@@ -78,13 +79,13 @@ public class TestController {
      String pass2 = employee.getPass();
      if(pass.equals(pass2))
      {
-    	 System.out.println("asdfasdfasdfsdg");
+    	
     	 
     	 return 1;
     	 
      }
      else {
-    	 System.out.println("nikal ");
+
      return 0;
      }
 	}
